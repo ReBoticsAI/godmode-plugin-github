@@ -1,0 +1,14 @@
+---
+description: GitHub PR workflow via godmode-plugin-github (gh CLI)
+alwaysApply: true
+---
+
+# GitHub PR safety (GodMode)
+
+When this plugin is installed, prefer **gh_*** tools over free-form `gh` / `run_terminal`.
+
+- Create PRs with `gh_pr_create` using a **Summary** and **Test plan** in the body.
+- Never include secrets, passwords, private hub IPs, or ops scripts in PR titles/bodies.
+- After opening a PR, use `gh_pr_checks` to wait for CI; do not spam merges.
+- Use `gh_pr_merge` only when checks are green (or the user explicitly accepts otherwise).
+- Do not force-push shared branches; do not merge to main without a PR unless the user explicitly asks.

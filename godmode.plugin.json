@@ -1,0 +1,7 @@
+{
+  "id": "godmode-plugin-github",
+  "version": "0.1.0",
+  "name": "GitHub",
+  "engine": "^0.1.0",
+  "bridge": { "entry": "dist/bridge.js" }
+}

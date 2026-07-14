@@ -1,0 +1,12 @@
+{
+  "name": "@godmode-plugin/github",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "GitHub PR/CI tools for GodMode Intelligence via the gh CLI.",
+  "scripts": {
+    "build": "echo Use GodMode build_plugin (Bridge esbuild) or npx esbuild locally"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
