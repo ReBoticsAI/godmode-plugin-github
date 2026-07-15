@@ -3,5 +3,6 @@
   "version": "0.1.0",
   "name": "GitHub",
   "engine": "^0.1.0",
+  "kernelApiVersion": 1,
   "bridge": { "entry": "dist/bridge.js" }
 }
