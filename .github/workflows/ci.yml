@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out plugin
+        uses: actions/checkout@v4
+        with:
+          path: plugin
+      - name: Check out current GodMode API
+        uses: actions/checkout@v4
+        with:
+          repository: ReBoticsAI/GodMode
+          ref: 732d993808d641645ed706d8560719cba5349d6f
+          path: GodMode
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: plugin/package-lock.json
+      - name: Build local kernel packages
+        working-directory: GodMode
+        run: |
+          npm ci
+          npm run build -w @godmode/kernel
+          npm run build -w @godmode/plugin-api
+      - name: Install plugin dependencies
+        working-directory: plugin
+        run: npm ci
+      - name: Validate migration
+        working-directory: plugin
+        run: npm run validate

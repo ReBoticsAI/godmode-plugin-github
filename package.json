@@ -5,8 +5,18 @@
   "type": "module",
   "description": "GitHub PR/CI tools for GodMode Intelligence via the gh CLI.",
   "scripts": {
-    "build": "echo Use GodMode build_plugin (Bridge esbuild) or npx esbuild locally"
+    "build": "tsc",
+    "typecheck": "tsc --noEmit && tsc -p tsconfig.test.json",
+    "test": "node --import tsx --test test/*.test.ts",
+    "validate": "npm run typecheck && npm test && npm run build"
   },
-  "dependencies": {},
-  "devDependencies": {}
+  "dependencies": {
+    "@godmode/kernel": "file:../GodMode/packages/kernel",
+    "@godmode/plugin-api": "file:../GodMode/packages/plugin-api"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.7.0"
+  }
 }
