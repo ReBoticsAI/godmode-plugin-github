@@ -20,7 +20,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: ReBoticsAI/GodMode
-          ref: feat/objecttype-kernel-migration
+          ref: 732d993808d641645ed706d8560719cba5349d6f
           path: GodMode
       - name: Set up Node
         uses: actions/setup-node@v4
